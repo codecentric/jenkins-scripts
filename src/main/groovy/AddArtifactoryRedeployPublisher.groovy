@@ -4,7 +4,7 @@ import org.jfrog.hudson.ServerDetails
 /**
  * Adds a publisher that publishes build artifacts to artifactory.
  */
-def handleJob(job) {
+def handleJob = { job ->
 
   /*
    * easiest way to get the artifactoryName is to configure a ArtifactoryRedeployPublisher

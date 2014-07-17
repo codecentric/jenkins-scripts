@@ -9,7 +9,7 @@ import hudson.plugins.sonar.SonarPublisher
  * It's good to have sonar running in it's own job, so that failures during analysis
  * won't mark the build as failed. This separation makes failure analysis easier.
  */
-def handleJob(job) {
+def handleJob = { job ->
   sonarJob = Jenkins.instance.createProject(FreeStyleProject.class, job.name + "-sonar")
   sonarJob.scm = job.scm
   sonarJob.addTrigger(new ReverseBuildTrigger(job.name, Result.SUCCESS))
