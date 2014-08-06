@@ -19,13 +19,13 @@ def folders = { item ->
   item instanceof Folder
 }
 
+def handleJob = { job ->
+  // do something with the job...
+}
+
 Jenkins.instance.items.findAll(folders).each{ folder ->
   folder.items.findAll(relevantJobs).each(handleJob)
 }
 
 
 Jenkins.instance.items.findAll(relevantJobs).each(handleJob)
-
-def handleJob = { job ->
-  // do something with the job...
-}
